@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Pacifico&family=Paytone+One&family=Raleway:ital,wght@0,300;1,300&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- файл иконочного шрифта -->
+		<link rel="stylesheet" href="./css/fonts.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<!-- Добавляем иконку на закладку -->
+		<link rel="shortcut icon" href="./icons/favicon.png" type="image/png" />
+		<title>Burgers</title>
+		<script src="./script.js" type="module" defer></script>
+	</head>
+	<body>
+		<header id="header">
+			<!-- Информация -->
+			<div class="header-info">
+				<nav>
+					<ul class="menu">
+						<li><a data-scroll="header">Home </a></li>
+						<li><a data-scroll="about">About us </a></li>
+						<li><a data-scroll="gallery">Gallery </a></li>
+						<li><a data-scroll="customers"> Customers </a></li>
+						<li><a data-scroll="footer">Contacts </a></li>
+						<li><a data-scroll="hitDishes"> hitDishes </a></li>
+					</ul>
+				</nav>
+				<div class="logo">
+					<a href="/">
+						<img src="./icons/logo.png" alt="logo" />
+					</a>
+				</div>
+				<div class="social-links">
+					<!-- РЕНДЕРИНГ -->
+					<!-- ****************** -->
+					<a href="tel:+78121111111"> +7(812)111-11-11 </a>
+					<button class="showModalBtn">ЕСТЬ ВОПРОС ?</button>
+				</div>
+			</div>
+			<!-- Заголовок -->
+			<h3>ABOUT</h3>
+			<img src="./img/header/bradcam2.png" alt="BG" class="header-bg" />
+		</header>
+
+		<section class="modal">
+			<form action="" class="modalForm" id="modalForm">				
+				<div class="exit">&times;</div>
+				<div class="modalForm__container">
+					<input type="text" placeholder="name" name="name"/>
+					<span class="error"></span>
+
+					<input type="text" placeholder="phone" name="phone"/>
+					<span class="error"></span>	
+
+					<input type="text" placeholder="email" name="email"/>
+					<span class="error"></span>	
+
+					<textarea name="message" placeholder="message"></textarea>
+					<span class="error"></span>
+
+					<button type="submit" class="form-btn">Отправить</button>
+				</div>
+			</form>
+		</section>
+
+		<main class="container">
+			<!-- Основное содержимое -->
+			<main>
+				<!-- Секция about -->
+				<section class="about" id="about">
+					<div class="about__photo">
+						<img src="./img/about/1.png" alt="1" class="about__photo__pict" />
+						<img src="./img/about/2.png" alt="2" class="about__photo__pict" />
+					</div>
+					<div class="about__text">
+						<span class="about__text__span">About Us</span>
+						<h3 class="about__text__h3">BEST BURGER IN YOUR CITY</h3>
+						<p class="about__text__p">
+							There are many variations of passages of Lorem Ipsum available, but the majority have
+							suffered alteration in some form, by injected humour, or randomised words which don't look
+							even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be
+							sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum
+							generators on the Internet tend to repeat predefined chunks as necessary, making this the
+							first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+							with a handful of model sentence structures, to generate
+						</p>
+					</div>
+				</section>
+
+				<!-- Секция Gallery -->
+
+				<section class="gallery" id="gallery">
+					<span class="gallery__span">Gallery Image</span>
+					<h3 class="gallery__h3">OUR GALLERY</h3>
+					<div class="gallery__photoContainer">
+						<!-- РЕНДЕРИНГ -->
+						<!-- ****************** -->
+					</div>
+				</section>
+
+				<!-- контейнер для всплывающей галереи фотографий -->
+				<div class="fullSizeImgContainer">
+					<img src="" alt="Picture" class="fullSizeImg" />
+					<button class="next">Next</button>
+					<button class="prev">Prev</button>
+				</div>
+
+				<!-- СЕКЦИЯ КЛИЕНТА -->
+				<section class="customers" id="customers">
+					<span class="customers__span"> Our customers </span>
+					<h3 class="customers__h3">The Feedback</h3>
+
+					<div class="customers__fb">
+						<div class="customers__fb_quote">
+							<blockquote>
+								<p>
+									Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, nesciunt nostrum
+									nihil numquam ad expedita neque quasi? Enim, culpa consequuntur vitae deserunt vel
+									eius provident nobis aspernatur modi dolor similique?
+								</p>
+							</blockquote>
+						</div>
+						<div class="customers__fb_author">
+							<div>
+								<img src="./img/customers/author.png" alt="Author" />
+							</div>
+							<ficaption>
+								<strong> Алексей Маковецкий </strong>
+							</ficaption>
+							<span class="star"> &#9734; &#9734; &#9734; &#9734; &#9734; </span>
+						</div>
+
+						<!-- стрелочки для переключения -->
+						<span class="icon-circle-right icon"></span>
+						<span class="icon-circle-left icon"></span>
+					</div>
+				</section>
+			</main>
+
+			<!-- Секция фирменных блюд -->
+			<section class="hitDishes" id="hitDishes">
+				<h3 class="customers__h3">Наши фирменные блюда</h3>
+				<div class="hitDishes__tabs">
+					<button id="1" class="active">Бургеры</button>
+					<button id="2">Десерты</button>
+					<button id="3">Мясные</button>
+					<button id="4">Супы</button>
+				</div>
+				<div class="hitDishes__tabs__content">
+					<!-- РЕНДЕРИНГ -->
+					<!-- ****************** -->
+				</div>
+			</section>
+
+			<footer id="footer">
+				<div class="footer__container">
+					<address>
+						<h3 class="footer__container__h3">New York</h3>
+						<p class="footer__container__p">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium saepe deserunt tempore
+							molestias voluptatum unde ea nostrum ducimus.
+						</p>
+						<a href="tel:+78121111111"> +7(812)111-11-11 </a>
+					</address>
+					<address>
+						<h3 class="footer__container__h3">California</h3>
+						<p class="footer__container__p">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium saepe deserunt tempore
+							molestias voluptatum unde ea nostrum ducimus.
+						</p>
+						<a href="tel:+78121111111"> +7(812)111-11-11 </a>
+					</address>
+					<address>
+						<h3 class="footer__container__h3">Stay Connected</h3>
+						<form class="footer__container__form">
+							<input type="email" placeholder="email:" />
+							<button>submit</button>
+						</form>
+						<p class="footer__container__p">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					</address>
+				</div>
+
+				<!-- ссылки на соц сети  -->
+				<div class="social-links inFooter">
+					<!-- РЕНДЕРИНГ -->
+					<!-- ****************** -->
+				</div>
+			</footer>
+		</ь>
+
+		<div class="wayUp">
+			<span> &#10148; </span>
+		</div>
+	</body>
+</html>
