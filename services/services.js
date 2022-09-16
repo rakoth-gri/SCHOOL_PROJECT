@@ -30,19 +30,29 @@ export function renderSocialLinksItems(node, data) {
 // РЕНДЕРИНГ КОНТЕНА ДЛЯ КОНКРЕТНОЙ ТАБЫ
 export function renderContent(node, index) {
 	const { name, pict, desc, prod, id } = hitDishesArray.find((dish) => dish.id === index);
-    
+
 	let template = `
     <article class="tabs__content_card active">
-        <h4 class="tabs__content_card_name">${name}</h4>        
-        <a href="./dishesPage.html?id=${id}" title="ПОДРОБНЕЕ...">
-            <img src="${pict}" alt="" class="tabs__content_card_pict" />
-        </a>
-        <p class="tabs__content_card_desc">
-        ${desc}
-        </p>
-        <div class="tabs__content_card_prod">
-            ${prod}
-        </div>
+        <h4 class="tabs__content_card_name">${name}</h4>
+        <div class="tabs__content_card_wrap">
+            <a href="./dishesPage.html?id=${id}" title="ПОДРОБНЕЕ...">
+                <img src="${pict}" alt="" class="tabs__content_card_pict" />
+            </a>
+            <p class="tabs__content_card_desc">
+                ${desc}
+            </p>
+        </div>   
+        <table class="tabs__content_card_prod">
+            <caption> Рецептура </caption>
+            ${prod
+				.map(
+					(item) => `<tr>
+                            <td> ${item.split(" - ")[0]} </td>
+                            <td> ${item.split(" - ")[1]} </td>
+                        </tr>`
+				)
+				.join("")}
+        </table>
     </article>`;
 
 	node.innerHTML = template;

@@ -81,7 +81,7 @@ header {
 	display: flex;
 	padding: var(--padding-small);
 	background-color: rgba(0, 0, 0, 0.85);
-	position: fixed;
+	position: absolute;
 	width: 100%;
 	z-index: 4;
 }
@@ -161,7 +161,6 @@ header h3 {
 .hitDishes__tabs__content {
 	padding: var(--padding-small);
 	position: relative;
-	min-height: 450px;
 }
 
 .tabs__content_card {
@@ -195,21 +194,45 @@ header h3 {
 	line-height: 150%;
 }
 
-.tabs__content_card_prod {
-	text-align: justify;
-	font-size: var(--fs-small);
-	font-family: var(--ff-text);
-	font-weight: 600;
-	color: var(--ff-text);
-	padding: 5px;
-	line-height: 150%;
-}
-
 /* Костыль */
-.tabs__content_card_prod::after {
+.tabs__content_card_desc::after {
 	content: "";
 	display: block;
 	clear: both;
+}
+
+.tabs__content_card_prod {
+	width: 90%;
+	font-family: "'Raleway', sans-serif;";
+	text-align: left;
+	font-size: 1.3rem;
+	font-weight: 400;
+	color: var(--ff-text);
+	padding: 5px;
+	line-height: 150%;
+	color: var(--color-text);
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+.tabs__content_card_prod td {
+	padding: 5px;
+}
+
+.tabs__content_card_prod tr:nth-child(odd) {
+	background: var(--color-contact);
+	color: var(--color-headers);
+}
+
+.tabs__content_card_prod caption {
+	padding: 5px;
+	font-weight: 600;
+	font-family: "Montserrat", sans-serif;
+}
+
+.tabs__content_card_wrap {
+	width: 90%;
+	margin: 0 auto;
 }
 
 /* FOOTER ******************************/

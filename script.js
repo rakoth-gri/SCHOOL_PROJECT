@@ -86,11 +86,13 @@ let currentSlide = 0;
 gallery.addEventListener("mouseup", showFullSize);
 function showFullSize({ target }) {
 	if (target.tagName !== "IMG") return;
+	
+	fullSizeImg.src = target.src;
 	fullSizeImgContainer.classList.toggle("active");
 
 	// первый рендер с анимацией
 	fullSizeImg.classList.add("active");
-	fullSizeImg.src = target.src;
+	
 
 	currentSlide = data.imageArray.indexOf(target.src.replace("http://127.0.0.1:5500", "."));
 	fullSizeImgContainer.addEventListener("click", SliderController);
