@@ -1,39 +1,44 @@
 <?php 
 
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$date = $_POST['date'];
+function clear_data($val)
+{
+	$val = trim($val);
+	$val = stripslashes($val);
+	$val = htmlspecialchars($val);
+	return $val;
+}
 
-require_once('phpmailer/PHPMailerAutoload.php');
-$mail = new PHPMailer;
-$mail->CharSet = 'utf-8';
+function validate()
+{
+	$formValuesArray = [];
+	foreach ($_POST as $key => $value) :
+		if (!trim($value)) die("Не все поля формы заполнены!");
+		$formValuesArray[$key] = clear_data($value);
+	endforeach;
+	return $formValuesArray;
+}
 
-$mail->isSMTP();                                     
-$mail->Host = 'smtp.yandex.ru';  
-$mail->SMTPAuth = true;                              
-$mail->Username = 'rakoth-gri@yandex.ru';                 
-$mail->Password = '5agu7by5';                           
-$mail->SMTPSecure = 'ssl';                            
-$mail->Port = 465;                                   
- 
-$mail->setFrom('rakoth-gri@yandex.ru', 'school Project');   // От кого письмо 
-$mail->addAddress('galievi.f@yandex.ru'); 
-$mail->addAttachment('../img/gallery/1.png', 'school Project');    
-$mail->isHTML(true);      
+// получаем ассоциативный массив данных из формы, где ключи это имена полей формы!
+$formValuesArray = validate();
 
-$mail->Subject = 'Письмо тестовое';
-$mail->Body = "\n
-	Поступило тестовое письмо \n
-	Имя: $name \n
-	Номер телефона: $phone \n
-	E-mail:  $email \n
-	Дата: $date  \n
-	Текст сообщения: $message "; 
 
-	if(!$mail->send()) return false;
-	else return true;
+// Формируем параметры для отправки: 
+$to = "galievi.f@yandex.ru"; // кому
+
+$subject = "Тестовое письмо"; // от кого
+
+$headers = "From: {$formValuesArray['email']}\r\n";
+$headers .= "Reply-To: {$formValuesArray['email']}\r\n";
+$headers .= "Content-type: text/html;charset=utf-8\r\n"; // заголовки
+
+$message = "Поступило тестовое письмо: <br>
+	Имя: {$formValuesArray['name']} <br>
+	Номер телефона: {$formValuesArray['phone']} <br>
+	E-mail:  {$formValuesArray['email']} <br>
+	Текст сообщения: {$formValuesArray['message']} "; // Сообщение
+
+
+mail($to, $subject, $message, $headers);
 	
 	
 ?>

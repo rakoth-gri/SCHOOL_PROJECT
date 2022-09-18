@@ -30,7 +30,7 @@ export class FormController {
 	async checkForm() {
 		let isValid = true;
 
-		this.formData.date = new Date().toLocaleDateString();
+		// this.formData.date = new Date().toLocaleDateString();
 
 		this.$formElementsArray.map((elem) => {
 			if (!this.formData[elem.name]) {
@@ -40,8 +40,15 @@ export class FormController {
 		});
 
 		if (isValid) {
-			await FetchingService.postReqData("../mailer/mail.php", this.formData, this.$form);
-			this.formData = { name: "", phone: "", email: "", message: "", date: "" };
+			FetchingService.postReqData("../mailer/mail.php", this.$form)
+				.then(() => (this.formData = { name: "", phone: "", email: "", message: "", date: "" }))
+				.catch((error) => console.log(error.message))
+				.finally(() => {
+					setTimeout(() => {
+						this.$form.reset();
+						this.$form.closest("SECTION").classList.remove("active");
+					}, 1000);
+				});
 		}
 	}
 }
