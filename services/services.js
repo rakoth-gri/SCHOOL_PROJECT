@@ -9,7 +9,7 @@ export function showCurrentSlide(node, counter) {
 export function renderGalleryPhotoContainerItems(node, data) {
 	data.forEach(({ src, title, icon }) => {
 		let temp = `<div class="gallery__photoContainer__item">
-            <img src=${src} alt="1" title=${title}/>
+            <img src='${src}' alt="gallery" title='${title}'/>
             <span class="${icon}"></span>
         </div>`;
 
@@ -29,13 +29,13 @@ export function renderSocialLinksItems(node, data) {
 
 // РЕНДЕРИНГ КОНТЕНА ДЛЯ КОНКРЕТНОЙ ТАБЫ
 export function renderContent(node, index) {
-	const { name, pict, desc, prod, id } = hitDishesArray.find((dish) => dish.id === index);
+	const { name, pict, desc, prod, id, url } = hitDishesArray.find((dish) => dish.id === index);
 
 	let template = `
     <article class="tabs__content_card active">
         <h4 class="tabs__content_card_name">${name}</h4>
         <div class="tabs__content_card_wrap">
-            <a href="./dishesPage.html?id=${id}" title="ПОДРОБНЕЕ...">
+            <a href="${url}${id}" title="ПОДРОБНЕЕ...">
                 <img src="${pict}" alt="" class="tabs__content_card_pict" />
             </a>
             <p class="tabs__content_card_desc">

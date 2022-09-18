@@ -1,6 +1,9 @@
 // импортируем регулярки
 import { regExpVocabular } from "../constants/regExpVocabular.js";
 
+// Импортируем класс для отправки сообщения
+import { FetchingService } from "./fetchingService.js";
+
 export class FormController {
 	constructor(form) {
 		this.$formElementsArray = [...form.elements].slice(0, -1);
@@ -17,13 +20,14 @@ export class FormController {
 			this.formData[e.target.name] = e.target.value;
 			e.target.nextElementSibling.textContent = "";
 		} else e.target.nextElementSibling.textContent = regExpVocabular[e.target.name][1];
+		console.log(this.formData);
 	};
 
 	addListener() {
 		this.$form.children[1].addEventListener("change", this.fillandValidateFormData);
 	}
 
-	checkForm() {
+	async checkForm() {
 		let isValid = true;
 
 		this.formData.date = new Date().toLocaleDateString();
@@ -36,9 +40,8 @@ export class FormController {
 		});
 
 		if (isValid) {
-			this.$form.reset();
+			await FetchingService.postReqData("../mailer/mail.php", this.formData, this.$form);
 			this.formData = { name: "", phone: "", email: "", message: "", date: "" };
-			setTimeout(() => this.$form.closest("SECTION").classList.remove("active"), 1000);
 		}
 	}
 }

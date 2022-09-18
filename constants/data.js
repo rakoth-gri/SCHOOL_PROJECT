@@ -3,7 +3,7 @@ export const hitDishesArray = [
 	{
 		id: "1",
 		name: "Классический американский бургер",
-		pict: "./img/tabs/hitBurger.jpg",
+		pict: "../img/tabs/hitBurger.jpg",
 		desc: "Классический американский бургер можно, например, взять с собой на природу. А ваши дети, капризные в еде, будут просто счастливы, если вы приготовите им такой бургер - с котлетой, овощами и сыром.",
 		prod: [
 			"Булочки для бургеров - 6 шт.",
@@ -18,12 +18,12 @@ export const hitDishesArray = [
 			"Специи для мяса - по вкусу",
 			"Масло растительное",
 		],
-		url: "./templates/dishesPage.html?id=",
+		url: "./dish.html?id=",
 	},
 	{
 		id: "2",
 		name: "Горелый чизкейк а-ля 'Сан-Себастьян'",
-		pict: "./img/tabs/hitChease.jpg",
+		pict: "../img/tabs/hitChease.jpg",
 		desc: "Тонкости приготовления оригинального чизкейка 'Сан-Себастьян' хранятся в секрете в одном из ресторанчиков одноимённого испанского города. Всё, что находится в открытом доступе, - попытки угадать и воспроизвести рецепт. И это одна из таких попыток, поэтому название чизкейка - с предлогом 'а-ля'. Особенность испанского чизкейка 'Сан-Себастьян' - тёмная, горелая корочка сверху. Он выпекается без основы из печенья. А по текстуре десерт исключительно нежный, кремовый!",
 		prod: [
 			"Сыр сливочный - 425 г",
@@ -33,12 +33,12 @@ export const hitDishesArray = [
 			"Мука (или кукурузный крахмал) - 30 г",
 			"Ванильный сахар (по желанию) - 1 ч. ложка",
 		],
-		url: "./templates/dishesPage.html?id=",
+		url: "./dish.html?id=",
 	},
 	{
 		id: "3",
 		name: "Антрекот из говядины",
-		pict: "./img/tabs/hitMeat.jpg",
+		pict: "../img/tabs/hitMeat.jpg",
 		desc: "Если уж вам посчастливилось обзавестись хорошим куском говядины, считайте половина дела уже сделано! Теперь - минимум ингредиентов, минимум манипуляций и времени, и идеальный антрекот у вас на столе. Сочная, мягкая, ароматная, невероятно вкусная говядина не оставит равнодушным ни одного мясоеда!",
 		prod: [
 			"Говядина (мякоть) - 400 г",
@@ -46,13 +46,13 @@ export const hitDishesArray = [
 			"Соль - по вкусу",
 			"Смесь молотых перцев - 1 ч. ложка",
 		],
-		url: "./templates/dishesPage.html?id=",
+		url: "./dish.html?id=",
 	},
-	
+
 	{
 		id: "4",
 		name: "Азиатский суп с лапшой удон",
-		pict: "./img/tabs/hitSoup.jpg",
+		pict: "../img/tabs/hitSoup.jpg",
 		desc: "Суп с удоном и морепродуктами.",
 		prod: [
 			"Удон - 50 г",
@@ -71,48 +71,48 @@ export const hitDishesArray = [
 			"Лук зелёный - по вкусу",
 			"Кунжут - по вкусу",
 		],
-		url: "./templates/dishesPage.html?id=",
+		url: "./dish.html?id=",
 	},
 ];
 
 // массив фото для ГАЛЕРЕИ
 export const imageArray = [
-	"./img/gallery/1.png",
-	"./img/gallery/2.png",
-	"./img/gallery/3.png",
-	"./img/gallery/4.png",
-	"./img/gallery/5.png",
-	"./img/gallery/6.png",
+	"../img/gallery/1.png",
+	"../img/gallery/2.png",
+	"../img/gallery/3.png",
+	"../img/gallery/4.png",
+	"../img/gallery/5.png",
+	"../img/gallery/6.png",
 ];
 
 export const galleryPhotoContainerItemArray = [
 	{
-		src: "./img/gallery/1.png",
+		src: "../img/gallery/1.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "./img/gallery/2.png",
+		src: "../img/gallery/2.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "./img/gallery/3.png",
+		src: "../img/gallery/3.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "./img/gallery/4.png",
+		src: "../img/gallery/4.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "./img/gallery/5.png",
+		src: "../img/gallery/5.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "./img/gallery/6.png",
+		src: "../img/gallery/6.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},

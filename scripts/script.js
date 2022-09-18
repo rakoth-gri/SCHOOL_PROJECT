@@ -1,14 +1,14 @@
 // ДАННЫЕ
-import * as data from "./constants/data.js"
+import * as data from "../constants/data.js";
 
 // СЕРВИСЫ
-import * as services from "./services/services.js";
+import * as services from "../services/services.js";
 
 // РЕГУЛЯРКИ
-import { regExpVocabular } from "./constants/regExpVocabular.js";
+import { regExpVocabular } from "../constants/regExpVocabular.js";
 
 // Контроллер формы
-import FormController from './services/formController.js';
+import FormController from "../services/formController.js";
 
 // КОНСТАНТЫ ----
 import {
@@ -24,9 +24,8 @@ import {
 	modal,
 	showModalBtn,
 	footerSocialLinksContainer,
-	wayUp,	
-} from "./constants/constIndexPage.js";
-
+	wayUp,
+} from "../constants/constIndexPage.js";
 
 // ПОЯВЛЕНИЕ / ИСЧЕЗНОВЕНИЕ КНОПКИ wayUp
 window.addEventListener("scroll", () => {
@@ -52,12 +51,12 @@ function animatedScrollUp(offset) {
 }
 
 //  ПЛАВНАЯ ПРОКРУТКА ДО КОНКРЕТНОЙ СЕКЦИИ ******
-document.querySelector(".menu").addEventListener("click", ({ target: { dataset } }) => {
-	document.getElementById(dataset.scroll).scrollIntoView({
-		block: "start",
-		behavior: "smooth",
-	});
-});
+// document.querySelector(".menu").addEventListener("click", ({ target: { dataset } }) => {
+// 	document.getElementById(dataset.scroll).scrollIntoView({
+// 		block: "start",
+// 		behavior: "smooth",
+// 	});
+// });
 
 // МОДАЛЬНОЕ ОКНО ********
 function showModal() {
@@ -86,15 +85,15 @@ let currentSlide = 0;
 gallery.addEventListener("mouseup", showFullSize);
 function showFullSize({ target }) {
 	if (target.tagName !== "IMG") return;
-	
+
 	fullSizeImg.src = target.src;
 	fullSizeImgContainer.classList.toggle("active");
 
 	// первый рендер с анимацией
 	fullSizeImg.classList.add("active");
-	
 
-	currentSlide = data.imageArray.indexOf(target.src.replace("http://127.0.0.1:5500", "."));
+	currentSlide = data.imageArray.indexOf(target.src.replace(/http:\/\/127.0.0.1:5500/, ".."));
+
 	fullSizeImgContainer.addEventListener("click", SliderController);
 }
 
@@ -141,7 +140,6 @@ function activeTab(e) {
 services.renderSocialLinksItems(footerSocialLinksContainer, data.SocialLinksArray);
 services.renderSocialLinksItems(headerSocialLinksContainer, data.SocialLinksArray);
 
-
 // ВАЛИДАЦИЯ И КОНТРОЛЛИНГ ФОРМЫ (ООП)
 
 // вызываем конструктор единожды!
@@ -149,6 +147,5 @@ const formController = new FormController(modalForm);
 
 document.forms.modalForm.addEventListener("submit", (e) => {
 	e.preventDefault();
-	formController.checkForm()
-})
-
+	formController.checkForm();
+});
