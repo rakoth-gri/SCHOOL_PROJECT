@@ -4,7 +4,7 @@ import * as data from "../constants/data.js";
 // СЕРВИСЫ
 import * as services from "../services/services.js";
 
-// РЕГУЛЯРКИ
+// словарь регулярок
 import { regExpVocabular } from "../constants/regExpVocabular.js";
 
 // Контроллер формы
@@ -15,8 +15,8 @@ import {
 	headerSocialLinksContainer,
 	galleryPhotoContainer,
 	exit,
-	fullSizeImg,
-	fullSizeImgContainer,
+	PopupImg,
+	PopupContainer,
 	hitDishesTabsButtons,
 	hitDishesTabs,
 	hitDishesTabsContent,
@@ -25,7 +25,7 @@ import {
 	showModalBtn,
 	footerSocialLinksContainer,
 	wayUp,
-} from "../constants/constIndexPage.js";
+} from "../constants/mainElems.js";
 
 // ПОЯВЛЕНИЕ / ИСЧЕЗНОВЕНИЕ КНОПКИ wayUp
 window.addEventListener("scroll", () => {
@@ -51,12 +51,15 @@ function animatedScrollUp(offset) {
 }
 
 //  ПЛАВНАЯ ПРОКРУТКА ДО КОНКРЕТНОЙ СЕКЦИИ ******
-// document.querySelector(".menu").addEventListener("click", ({ target: { dataset } }) => {
-// 	document.getElementById(dataset.scroll).scrollIntoView({
-// 		block: "start",
-// 		behavior: "smooth",
-// 	});
-// });
+document.querySelector(".menu").addEventListener("click", (e) => {	
+	e.preventDefault();	
+	if (!e.target.closest("li")) return;
+
+	document.querySelector(e.target.id).scrollIntoView({
+		block: "start",
+		behavior: "smooth",
+	});
+});
 
 // МОДАЛЬНОЕ ОКНО ********
 function showModal() {
@@ -64,7 +67,6 @@ function showModal() {
 	modalForm.classList.toggle("active");
 	document.body.style.overflow = "hidden";
 }
-
 showModalBtn.addEventListener("click", showModal);
 
 // ЗАКРЫВАЕМ МОДАЛЬНОЕ -- Версия 2
@@ -79,22 +81,23 @@ modal.addEventListener("click", (e) => {
 // РЕНДЕРИМ ГАЛЕРЕЮ ИЗОБРАЖЕНИЙ  *********
 services.renderGalleryPhotoContainerItems(galleryPhotoContainer, data.galleryPhotoContainerItemArray);
 
-//  СЛАЙДЕР ГАЛЕРЕЯ! **********
+//  СЛАЙДЕР ГАЛЕРЕИ! **********
 let currentSlide = 0;
 
-gallery.addEventListener("mouseup", showFullSize);
-function showFullSize({ target }) {
+gallery.addEventListener("mouseup", showPopup);
+function showPopup({ target }) {
 	if (target.tagName !== "IMG") return;
 
-	fullSizeImg.src = target.src;
-	fullSizeImgContainer.classList.toggle("active");
+	PopupImg.src = target.id;
+
+	PopupContainer.classList.toggle("active");
 
 	// первый рендер с анимацией
-	fullSizeImg.classList.add("active");
+	PopupImg.classList.add("active");
 
-	currentSlide = data.imageArray.indexOf(target.src.replace(/http:\/\/127.0.0.1:5500/, ".."));
+	currentSlide = data.imageArray.indexOf(target.id);
 
-	fullSizeImgContainer.addEventListener("click", SliderController);
+	PopupContainer.addEventListener("click", SliderController);
 }
 
 // КОНТРОЛЛЕР СЛАЙДЕРА *********
@@ -109,7 +112,7 @@ function SliderController({ target }) {
 		// Закрытие галереи
 		default:
 			this.classList.toggle("active");
-			fullSizeImg.classList.toggle("active");
+			PopupImg.classList.toggle("active");
 			this.removeEventListener("click", SliderController);
 			break;
 	}
@@ -119,13 +122,13 @@ function SliderController({ target }) {
 	if (currentSlide < 0) currentSlide = data.imageArray.length - 1;
 
 	// РЕНДЕРИНГ СЛАЙДА *****
-	services.showCurrentSlide(fullSizeImgContainer, currentSlide);
+	services.showCurrentSlide(this, currentSlide);
 }
 
 // ТАБЫ ******
 
 // ПЕРВЫЙ ВЫЗОВ ДЛЯ АКТИВНОЙ ТАБЫ
-services.renderContent(hitDishesTabsContent, "1");
+services.renderTabContent(hitDishesTabsContent, "1");
 
 hitDishesTabs.addEventListener("click", activeTab);
 
@@ -133,7 +136,7 @@ function activeTab(e) {
 	if (e.target.tagName !== "BUTTON") return;
 	hitDishesTabsButtons.forEach((button) => button.classList.remove("active"));
 	e.target.classList.add("active");
-	services.renderContent(hitDishesTabsContent, e.target.id);
+	services.renderTabContent(hitDishesTabsContent, e.target.id);
 }
 
 // РЕНДЕРИНГ ИКОНОК СОЦ СЕТЕЙ FOOTER / HEADER *****

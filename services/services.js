@@ -1,34 +1,39 @@
 import { hitDishesArray, imageArray } from "../constants/data.js";
 
-// показ активного слайда в галерее
+
+// РЕНДЕРИНГ ГАЛЕРЕИ ИЗОБРАЖЕНИЙ
+export function renderGalleryPhotoContainerItems(node, data) {
+	let temp = data.map(({ src, title, icon }) => {
+		return (`
+        <div class="gallery__photoContainer__item">
+            <img src='${src}' id=${src} alt="gallery" title='${title}'/>
+            <span class="${icon}"></span>
+        </div>`)
+    }).join("");
+    node.insertAdjacentHTML("beforeend", temp);
+}
+
+
+// показ активного слайда в галерее ------------------------>>>>>
 export function showCurrentSlide(node, counter) {
 	node.querySelector("img").src = imageArray[counter];
 }
 
-// РЕНДЕРИНГ ГАЛЕРЕИ ИЗОБРАЖЕНИЙ
-export function renderGalleryPhotoContainerItems(node, data) {
-	data.forEach(({ src, title, icon }) => {
-		let temp = `<div class="gallery__photoContainer__item">
-            <img src='${src}' alt="gallery" title='${title}'/>
-            <span class="${icon}"></span>
-        </div>`;
 
-		node.insertAdjacentHTML("beforeend", temp);
-	});
-}
-
-// РЕНДЕРИНГ ССЫЛОК НА СОЦИАЛЬНЫЕ СЕТИ
+// РЕНДЕРИНГ ССЫЛОК НА СОЦИАЛЬНЫЕ СЕТИ ------------------------>>>>>
 export function renderSocialLinksItems(node, data) {
 	data.forEach(({ url, icon }) => {
 		let temp = `<a href="${url}">
             <span class="${icon}"></span>
         </a>`;
+
 		node.insertAdjacentHTML("beforeend", temp);
 	});
 }
 
-// РЕНДЕРИНГ КОНТЕНА ДЛЯ КОНКРЕТНОЙ ТАБЫ
-export function renderContent(node, index) {
+
+// РЕНДЕРИНГ КОНТЕНА ДЛЯ КОНКРЕТНОЙ ТАБЫ ------------------------>>>>>
+export function renderTabContent(node, index) {
 	const { name, pict, desc, prod, id, url } = hitDishesArray.find((dish) => dish.id === index);
 
 	let template = `

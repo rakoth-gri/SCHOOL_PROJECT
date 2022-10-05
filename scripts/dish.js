@@ -5,13 +5,18 @@ import { SocialLinksArray } from "../constants/data.js";
 import * as services from "../services/services.js";
 
 // константы
-import {headerSocialLinksContainer, hitDishesTabsContent, footerSocialLinksContainer} from "../constants/constDishesPage.js";
+import {headerSocialLinksContainer, hitDishesTabsContent, footerSocialLinksContainer} from "../constants/dishElems.js";
 
 // Получаем из WINDOW объект queryParams и обрабатываем:
 let id = location.search.replace(/[^\d]+/, "");
 
-services.renderContent(hitDishesTabsContent, id);
+// рендерим содержимое табов
+services.renderTabContent(hitDishesTabsContent, id);
+
+// рендерим социальные иконки в header
 services.renderSocialLinksItems(headerSocialLinksContainer, SocialLinksArray)
+
+// рендерим социальные иконки в footer
 services.renderSocialLinksItems(footerSocialLinksContainer, SocialLinksArray)
    
 

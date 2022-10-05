@@ -39,6 +39,3 @@ $message = "Поступило тестовое письмо: <br>
 
 
 mail($to, $subject, $message, $headers);
-	
-	
-?>

@@ -12,8 +12,8 @@ export const tabsСontentСard = document.body.querySelectorAll(".tabs__content_
 
 //  Галерея фотографий *************
 export const galleryPhotoContainer = document.body.querySelector(".gallery__photoContainer");
-export const fullSizeImgContainer = document.body.querySelector(".fullSizeImgContainer");
-export const fullSizeImg = fullSizeImgContainer.querySelector(".fullSizeImg");
+export const PopupContainer = document.body.querySelector(".PopupContainer");
+export const PopupImg = PopupContainer.querySelector(".PopupImg");
 
 // Модальное окно *******
 export const modal = document.querySelector(".modal");

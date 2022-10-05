@@ -12,7 +12,7 @@
 	<!-- Добавляем иконку на закладку -->
 	<link rel="shortcut icon" href="../icons/favicon.png" type="image/png" />
 	<title>Burgers</title>
-	<script src="../scripts/script.js" type="module" defer></script>
+	<script src="../scripts/main.js" type="module" defer></script>
 </head>
 
 <body>
@@ -21,12 +21,12 @@
 		<div class="header-info">
 			<nav>
 				<ul class="menu">
-					<li><a href="/dishes">Home </a></li>
-					<li><a href="#about">About us </a></li>
-					<li><a href="#gallery">Gallery </a></li>
-					<li><a href="#customers"> Customers </a></li>
-					<li><a href="#footer">Contacts </a></li>
-					<li><a href="#hitDishes"> hitDishes </a></li>
+					<li><a id="#header"> Home </a></li>
+					<li><a id="#about">About us </a></li>
+					<li><a id="#gallery">Gallery </a></li>
+					<li><a id="#customers"> Customers </a></li>
+					<li><a id="#footer">Contacts </a></li>
+					<li><a id="#hitDishes"> hitDishes </a></li>
 				</ul>
 			</nav>
 			<div class="logo">
@@ -103,8 +103,8 @@
 			</section>
 
 			<!-- контейнер для всплывающей галереи фотографий -->
-			<div class="fullSizeImgContainer">
-				<img src="" alt="Picture" class="fullSizeImg" />
+			<div class="PopupContainer">
+				<img src="" alt="Picture" class="PopupImg" />
 				<button class="next">Next</button>
 				<button class="prev">Prev</button>
 			</div>

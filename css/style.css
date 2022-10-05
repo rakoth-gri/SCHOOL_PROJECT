@@ -407,7 +407,7 @@ header h3 {
 
 /* всплывающая Галерея фотографий */
 
-.fullSizeImgContainer {
+.PopupContainer {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -418,18 +418,18 @@ header h3 {
 	z-index: 4;
 }
 
-.fullSizeImgContainer.active {
+.PopupContainer.active {
 	display: flex;
 }
 
-.fullSizeImg {
+.PopupImg {
 	margin: auto;
 	width: 70%;
 	height: 80%;
 	object-fit: contain;
 }
 
-.fullSizeImg.active {
+.PopupImg.active {
 	animation: photo 0.5s linear;
 }
 
