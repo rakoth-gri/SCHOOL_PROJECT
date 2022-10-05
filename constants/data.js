@@ -77,42 +77,42 @@ export const hitDishesArray = [
 
 // массив фото для ГАЛЕРЕИ
 export const imageArray = [
-	"../img/gallery/1.png",
-	"../img/gallery/2.png",
-	"../img/gallery/3.png",
-	"../img/gallery/4.png",
-	"../img/gallery/5.png",
-	"../img/gallery/6.png",
+	"./img/gallery/1.png",
+	"./img/gallery/2.png",
+	"./img/gallery/3.png",
+	"./img/gallery/4.png",
+	"./img/gallery/5.png",
+	"./img/gallery/6.png",
 ];
 
 export const galleryPhotoContainerItemArray = [
 	{
-		src: "../img/gallery/1.png",
+		src: "./img/gallery/1.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "../img/gallery/2.png",
+		src: "./img/gallery/2.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "../img/gallery/3.png",
+		src: "./img/gallery/3.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "../img/gallery/4.png",
+		src: "./img/gallery/4.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "../img/gallery/5.png",
+		src: "./img/gallery/5.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
 	{
-		src: "../img/gallery/6.png",
+		src: "./img/gallery/6.png",
 		title: "ОТКРЫТЬ ГАЛЕРЕЮ",
 		icon: "icon-plus",
 	},
